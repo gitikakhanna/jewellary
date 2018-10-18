@@ -178,9 +178,6 @@
                     </a>
                 </div>
             </nav>
-            <main class="page-content">
-                
-            </main>
         </div>
     @endguest
 

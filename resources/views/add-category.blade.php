@@ -1,9 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>hi</title>
-</head>
-<body>
+@extends('layouts.app')
 
-</body>
-</html>
+@section('content')
+	<main class="page-content">
+		<div class="container-fluid">
+			<div class="row">
+				<h2>This is gitika Khanna</h2>
+			</div>
+		</div>
+	</main>
+@endsection
