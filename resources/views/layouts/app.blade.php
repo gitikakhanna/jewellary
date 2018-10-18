@@ -123,7 +123,7 @@
                             <li class="sidebar-dropdown">
                                 <a href="#">
                                     <i class="fa fa-tachometer-alt"></i>
-                                    <span>Dashboard</span>
+                                    <span><a href="/add-category">Dashboard</a></span>
                                 </a>
                                 <div class="sidebar-submenu">
                                     <ul>
