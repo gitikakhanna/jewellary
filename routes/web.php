@@ -23,3 +23,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/add-category', 'CategoriesController@index');
 Route::post('/add-category/add', 'CategoriesController@store');
 
+// routes for sub category
+Route::get('/category/add-subcategory', 'SubcategoriesController@index');

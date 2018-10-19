@@ -17,7 +17,6 @@ class CategoriesController extends Controller
 
     public function index()
     {
-    	
     	return view('add-category');
     }
 
@@ -42,7 +41,7 @@ class CategoriesController extends Controller
 
     protected function storeAction($data)
     {
-    	DB::table('categories')->insert([
+    	Categories::insert([
     		'name'=>$data->category_name,
     		'created_at'=>now(),
     		'updated_at'=>now(),

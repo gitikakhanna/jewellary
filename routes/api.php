@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,14 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::post('/category/add-subcategory/add', function(Request $request){
+	DB::table('subcategories')->insert([
+			'category_id' => $request->category,
+			'subcategory_name' => $request->subcategory,
+			'created_at' => now(),
+			'updated_at' => now()
+	]);
+	return 'hey';
 });

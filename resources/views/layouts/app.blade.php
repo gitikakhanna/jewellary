@@ -123,16 +123,12 @@
                             <li class="sidebar-dropdown">
                                 <a href="#">
                                     <i class="fa fa-tachometer-alt"></i>
-                                    <span><a href="/add-category">Dashboard</a></span>
+                                    <span><a href="/add-category">Category</a></span>
                                 </a>
                                 <div class="sidebar-submenu">
                                     <ul>
                                         <li>
-                                            <a href="#">Dashboard 1
-                                            </a>
-                                            <a href="#">Dashboard 2
-                                            </a>
-                                            <a href="#">Dashboard 3
+                                            <a href="/category/add-subcategory">Subcategory
                                             </a>
                                         </li>
                                     </ul>
@@ -187,7 +183,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/skeleton.js') }}"></script>
-    
+    @yield('js')
     {{-- jQuery --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     {{-- Bootstrap and Popper JS --}}
