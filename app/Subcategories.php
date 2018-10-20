@@ -7,5 +7,7 @@ use DB;
 
 class Subcategories extends Model
 {
-    //
+    protected $fillable=[
+    	'category_id', 'subcategory_name'
+    ];
 }

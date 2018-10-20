@@ -28,3 +28,18 @@ Route::post('/category/add-subcategory/add', function(Request $request){
 	]);
 	return 'hey';
 });
+
+Route::post('/add-products/subcategory', function(Request $request){
+	$subcat_name = DB::table('subcategories')->where('category_id', $request->subcategory)->get();
+	if(count($subcat_name))
+	{
+		return response()->json([
+			'subcategory'=>$subcat_name,
+		]);
+	}
+	else{
+		return response()->json([
+			'subcategory'=>'no match found'
+		]);
+	}
+});
