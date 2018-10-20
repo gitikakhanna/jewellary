@@ -26,6 +26,41 @@
 				  		<select id="subcategory" class="form-control" disabled="disabled">
 				  			<option>Choose...</option>
 				  		</select>
+				  		<label class="mt-3">Product name</label>
+				  		<input type="text" name="product_name" class="form-control" placeholder="Product Name">
+				  		<div class="row">
+				  			<div class="col-6">
+				  				<label class="mt-3">Price</label>
+				  				<input type="number" name="price" class="form-control" placeholder="Product Price" min="0">	
+				  			</div>
+				  			<div class="col-6">
+				  				<label class="mt-3">Discount (if any)</label>
+				  				<input type="number" name="discount" class="form-control" placeholder="Product Discount" max="100" min="1">
+				  			</div>
+				  		</div>
+				  		<div class="row">
+				  			<div class="col-6">
+				  				<label class="mt-5">Item Package Quantity</label>
+						  		<div class="input-group">
+						  			<div class="input-group-prepend">
+						  				<a href="#" class="btn btn-sm btn-info decrement-input"><i class="fas fa-minus"></i></a>
+						  			</div>
+						  			<input readonly type="text" value="0" class="form-control text-center number-input" min="0" name="package_qty">
+						  			<div class="input-group-append">
+						  				<a href="#" class="btn btn-sm btn-info increment-input"><i class="fas fa-plus"></i></a>
+						  			</div>
+						  		</div>
+				  			</div>
+				  			<div class="col-6">
+				  				<label class="mt-5">Gender</label>
+				  				<select class="form-control" name="gender">
+				  					<option>Choose...</option>
+				  					<option value="male">Male</option>
+				  					<option value="female">Female</option>
+				  					<option value="unisex">Unisex</option>
+				  				</select>	
+				  			</div>	
+				  		</div>
 				  	</div>
 				  	<div class="tab-pane fade" id="v-pills-dimension" role="tabpanel" aria-labelledby="v-pills-dimension-tab">dimensions</div>
 				  	<div class="tab-pane fade" id="v-pills-metal" role="tabpanel" aria-labelledby="v-pills-metal-tab">Metal information here</div>
