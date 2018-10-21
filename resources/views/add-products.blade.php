@@ -7,6 +7,7 @@
 				  	<a class="nav-link active" id="v-pills-general-tab" data-toggle="pill" href="#v-pills-general" role="tab" aria-controls="v-pills-general" aria-selected="true">General</a>
 				  	<a class="nav-link" id="v-pills-dimension-tab" data-toggle="pill" href="#v-pills-dimension" role="tab" aria-controls="v-pills-dimension" aria-selected="false">Product Dimensions</a>
 				  	<a class="nav-link" id="v-pills-metal-tab" data-toggle="pill" href="#v-pills-metal" role="tab" aria-controls="v-pills-metal" aria-selected="false">Metal Information</a>
+				  	<a class="nav-link" id="v-pills-price-tab" data-toggle="pill" href="#v-pills-price" role="tab" aria-controls="v-pills-price" aria-selected="false">Price Breakup</a>
 				  	<a class="nav-link" id="v-pills-other-tab" data-toggle="pill" href="#v-pills-other" role="tab" aria-controls="v-pills-other" aria-selected="false">Others</a>
 				</div>
 			</div>
@@ -79,7 +80,8 @@
 				  		<div class="row">
 				  			<div class="col-6">
 					  			<label class="mt-3">Images</label>
-					  			<input type="text" name="img_url" class="form-control show-preview" placeholder="Image URL" data-target="#prod_img" value="">
+					  			<input type="file" name="img_url" class="show-preview" accept="image/*" data-target="#prod_img" value="">
+
 					  			<input type="text" name="alt_txt" class="form-control mt-2" placeholder="Alt Text" value="">		
 				  			</div>
 				  			<div class="col-6">
@@ -96,8 +98,37 @@
 				  		<label class="mt-3">Product Weight</label>
 				  		<input type="text" name="weight" class="form-control" placeholder="weight">
 				  	</div>
-				  	<div class="tab-pane fade" id="v-pills-metal" role="tabpanel" aria-labelledby="v-pills-metal-tab">Metal information here</div>
-				  	<div class="tab-pane fade" id="v-pills-other" role="tabpanel" aria-labelledby="v-pills-other-tab">Other Information</div>
+				  	<div class="tab-pane fade" id="v-pills-metal" role="tabpanel" aria-labelledby="v-pills-metal-tab">
+				  		<h3>Add Products</h3>
+				  		<label class="mt-3">Metal Type</label>
+				  		<input type="text" name="metal_type" class="form-control" placeholder="Type">
+				  		<label class="mt-3">Metal Weight</label>
+				  		<input type="text" name="metal_weight" class="form-control" placeholder="Weight(approx)">
+				  		<label class="mt-3">Color</label>
+				  		<input type="text" name="metal_color" class="form-control" placeholder="Color">
+				  		<label class="mt-3">Clarity</label>
+				  		<input type="text" name="metal_clarity" class="form-control" placeholder="Clarity">
+				  	</div>
+				  	<div class="tab-pane fade" id="v-pills-price" role="tabpanel" aria-labelledby="v-pills-price-tab">
+				  		<h3>Add Products</h3>
+				  		<label class="mt-3">Metal Charges</label>
+				  		<input type="number" name="metal_charges" min="0" class="form-control" placeholder="Metal Charges">
+				  		<label class="mt-3">Making Charges</label>
+				  		<input type="number" name="making_charges" min="0" class="form-control" placeholder="Making Charges">
+				  		<label class="mt-3">Tax</label>
+				  		<input type="number" name="tax_charges" min="0" class="form-control" placeholder="Tax Charges">
+				  	</div>
+				  	<div class="tab-pane fade" id="v-pills-other" role="tabpanel" aria-labelledby="v-pills-other-tab">
+				  		<h3>Add Products</h3>
+				  		<label class="mt-3">Wearing style</label>
+				  		<input type="text" name="wearing_style" class="form-control" placeholder="Wearing Style">
+				  		<label class="mt-3">Occassion</label>
+				  		<input type="text" name="occassion" class="form-control" placeholder="Occassion">
+				  		<label class="mt-3">Theme/Gifting for</label>
+				  		<input type="text" name="theme" class="form-control" placeholder="Theme/Gifting for">
+				  		<label class="mt-3">Featured</label>
+				  		<input type="text" name="featured" class="form-control" placeholder="Featured">
+				  	</div>
 				</div>
 			</div>
 		</div>
@@ -160,6 +191,7 @@
 
 	   	$(document).on('change','.show-preview',function(){
 			var image = $(this).val();
+			console.log(image);
 			if(image == ''){
 				image = '/img/image-placeholder.png';
 			}
