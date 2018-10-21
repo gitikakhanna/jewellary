@@ -24,11 +24,9 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->integer('item_package_qty');
             $table->string('gender');
-            $table->timestamps();
-        });
-        Schema::table('products', function($table){
-            $table->boolean('availability');
             $table->string('image');
+            $table->boolean('availability');
+            $table->timestamps();
         });
     }
 
@@ -40,9 +38,5 @@ class CreateProductsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('products');
-        Schema::table('products', function($table){
-            $table->dropColumn('availability');
-            $table->dropColumn('image');
-        });
     }
 }
