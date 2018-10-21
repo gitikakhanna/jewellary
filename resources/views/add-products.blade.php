@@ -14,20 +14,28 @@
 				<div class="tab-content" id="v-pills-tabContent">
 				  	<div class="tab-pane fade show active" id="v-pills-general" role="tabpanel" aria-labelledby="v-pills-general-tab">
 				  		<h3>Add Products</h3>
-				  		<label class="mt-3">Choose Category</label>
-				  		<select class="form-control" id="category">
-				  			<option>Choose...</option>
-				  			@forelse($categories as $category)
-				  				<option value="{{$category->id}}">{{$category->name}}</option>
-				  				@empty{{''}}
-				  			@endforelse
-				  		</select>
-				  		<label class="mt-3">Choose Subcategory</label>
-				  		<select id="subcategory" class="form-control" disabled="disabled">
-				  			<option>Choose...</option>
-				  		</select>
+				  		<div class="row">
+				  			<div class="col-6">
+				  				<label class="mt-3">Choose Category</label>
+						  		<select class="form-control" id="category">
+						  			<option>Choose...</option>
+						  			@forelse($categories as $category)
+						  				<option value="{{$category->id}}">{{$category->name}}</option>
+						  				@empty{{''}}
+						  			@endforelse
+						  		</select>		
+				  			</div>
+				  			<div class="col-6">
+				  				<label class="mt-3">Choose Subcategory</label>
+						  		<select id="subcategory" class="form-control" disabled="disabled">
+						  			<option>Choose...</option>
+						  		</select>		
+				  			</div>
+				  		</div>
+				  		
 				  		<label class="mt-3">Product name</label>
 				  		<input type="text" name="product_name" class="form-control" placeholder="Product Name">
+
 				  		<div class="row">
 				  			<div class="col-6">
 				  				<label class="mt-3">Price</label>
@@ -61,8 +69,33 @@
 				  				</select>	
 				  			</div>	
 				  		</div>
+
+				  		<div class="row">
+				  			<div class="col-12 form-group">
+				  				<label class="mt-3">Description</label>
+				  				<textarea class="form-control" rows="15" placeholder="description" id="ckeditor-1" name="description"></textarea>
+				  			</div>
+				  		</div>
+				  		<div class="row">
+				  			<div class="col-6">
+					  			<label class="mt-3">Images</label>
+					  			<input type="text" name="img_url" class="form-control show-preview" placeholder="Image URL" data-target="#prod_img" value="">
+					  			<input type="text" name="alt_txt" class="form-control mt-2" placeholder="Alt Text" value="">		
+				  			</div>
+				  			<div class="col-6">
+				  				<img src="/img/image-placeholder.png" class="img-fluid" id="prod_img">	
+				  			</div>
+				  		</div>
 				  	</div>
-				  	<div class="tab-pane fade" id="v-pills-dimension" role="tabpanel" aria-labelledby="v-pills-dimension-tab">dimensions</div>
+				  	<div class="tab-pane fade" id="v-pills-dimension" role="tabpanel" aria-labelledby="v-pills-dimension-tab">
+				  		<h3>Add Products</h3>
+				  		<label class="mt-3">Width</label>
+				  		<input type="text" name="width" class="form-control" placeholder="Width">
+				  		<label class="mt-3">Height</label>
+				  		<input type="text" name="height" class="form-control" placeholder="Height">
+				  		<label class="mt-3">Product Weight</label>
+				  		<input type="text" name="weight" class="form-control" placeholder="weight">
+				  	</div>
 				  	<div class="tab-pane fade" id="v-pills-metal" role="tabpanel" aria-labelledby="v-pills-metal-tab">Metal information here</div>
 				  	<div class="tab-pane fade" id="v-pills-other" role="tabpanel" aria-labelledby="v-pills-other-tab">Other Information</div>
 				</div>
@@ -115,5 +148,22 @@
 		});	
 
 	</script>
-	
+@endsection
+@section('extra-js')
+	<script src="https://cdn.ckeditor.com/ckeditor5/10.0.0/classic/ckeditor.js"></script>
+	<script type="text/javascript">
+		ClassicEditor
+	        .create( document.querySelector( '#ckeditor-1' ) )
+	        .catch( error => {
+	            console.error( error );
+	        } );
+
+	   	$(document).on('change','.show-preview',function(){
+			var image = $(this).val();
+			if(image == ''){
+				image = '/img/image-placeholder.png';
+			}
+			$($(this).attr('data-target')).attr('src',image);
+		})
+	</script>
 @endsection
