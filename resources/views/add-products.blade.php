@@ -88,6 +88,12 @@
 				  				<img src="/img/image-placeholder.png" class="img-fluid" id="prod_img">	
 				  			</div>
 				  		</div>
+				  		<div class="col-auto my-1">
+				  			<div class="custom-control cutsom-checkbox mr-sm-2">
+				  				<input type="checkbox" name="availability" class="custom-control-input" id="availability">
+				  				<label class="custom-control-label" for="availability">Availability</label>
+				  			</div>
+				  		</div>
 				  	</div>
 				  	<div class="tab-pane fade" id="v-pills-dimension" role="tabpanel" aria-labelledby="v-pills-dimension-tab">
 				  		<h3>Add Products</h3>
