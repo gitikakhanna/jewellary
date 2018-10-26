@@ -5,7 +5,7 @@
 			<div class="row">
 				<div class="col-3">
 					<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-					  	<a class="nav-link active" id="v-pills-general-tab" data-toggle="pill" href="#v-pills-general" role="tab" aria-controls="v-pills-general" aria-selected="true">General</a>
+					  	<a class="nav-link active show" id="v-pills-general-tab" data-toggle="pill" href="#v-pills-general" role="tab" aria-controls="v-pills-general" aria-selected="true">General</a>
 					  	<a class="nav-link" id="v-pills-dimension-tab" data-toggle="pill" href="#v-pills-dimension" role="tab" aria-controls="v-pills-dimension" aria-selected="false">Product Dimensions</a>
 					  	<a class="nav-link" id="v-pills-metal-tab" data-toggle="pill" href="#v-pills-metal" role="tab" aria-controls="v-pills-metal" aria-selected="false">Metal Information</a>
 					  	<a class="nav-link" id="v-pills-price-tab" data-toggle="pill" href="#v-pills-price" role="tab" aria-controls="v-pills-price" aria-selected="false">Price Breakup</a>
@@ -14,7 +14,7 @@
 				</div>
 				<div class="col-9">
 					<div class="tab-content" id="v-pills-tabContent">
-					  	<div class="tab-pane fade show active" id="v-pills-general" role="tabpanel" aria-labelledby="v-pills-general-tab">
+					  	<div class="tab-pane fade show active in" id="v-pills-general" role="tabpanel" aria-labelledby="v-pills-general-tab">
 					  		<h3>Add Products</h3>
 					  		<div class="row">
 					  			<div class="col-6">
