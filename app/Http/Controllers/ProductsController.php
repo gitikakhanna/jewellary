@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use Auth;
 use DateTime;
 use App\Subcategories;
@@ -23,6 +25,7 @@ class ProductsController extends Controller
     }
     public function store(Request $request)
     {	
+
     	$invalid = $this->storeValidator($request);
     	if(!empty($invalid))
     	{
@@ -41,6 +44,11 @@ class ProductsController extends Controller
     }
     protected function storeAction($data)
     {
+    	$cover = $data->file('img_url');
+        //dd($data->img_url);
+    	$extension = $cover->getClientOriginalExtension();
+    	Storage::disk('public')->put($cover->getFilename().'.'.$extension, File::get($cover));
+
     	$rand_product_code = $data->category." ".mt_rand(0, 10000);
     	DB::table('products')->insert([
     		'category' => $data->category,
@@ -52,7 +60,7 @@ class ProductsController extends Controller
     		'description' => $data->description,
     		'item_package_qty' => $data->package_qty,
     		'gender' => $data->gender,
-    		'image' => 'no image',
+    		'image' => $cover->getFilename().'.'.$extension,
     		'availability' => $data->availability,
     		'created_at'=>now(),
     		'updated_at' => now(),

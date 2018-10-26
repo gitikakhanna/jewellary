@@ -1,3 +1,7 @@
+body{
+  font-size: 16px !important;
+}
+
 .page-wrapper .sidebar-wrapper,
 .sidebar-wrapper .sidebar-brand > a,
 .sidebar-wrapper .sidebar-dropdown > a:after,
