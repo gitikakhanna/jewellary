@@ -29,3 +29,7 @@ Route::get('/category/add-subcategory', 'SubcategoriesController@index');
 //routes for add products
 Route::get('/add-products', 'ProductsController@index');
 Route::post('/save-product', 'ProductsController@store');
+
+//routes for show products
+Route::get('/show-products', 'EditProductsController@index');
+Route::get('/show-products/remove', 'EditProductsController@remove');
