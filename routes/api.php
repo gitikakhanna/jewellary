@@ -43,3 +43,8 @@ Route::post('/add-products/subcategory', function(Request $request){
 		]);
 	}
 });
+
+Route::post('/remove-category', function(Request $request){
+	DB::table('categories')->where('id', $request->id)->delete();
+	return 'category removed';
+});

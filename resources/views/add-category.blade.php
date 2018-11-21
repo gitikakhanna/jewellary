@@ -30,12 +30,24 @@
 	<script type="text/javascript">
 		$(document).on('click', '.remove_cat', function(){
 			var check = confirm("Are you sure you want to remove this category?");
-			// if(check == true)
-			// {
-			// 	var val = $(this).attr('data-target');
-			// 	var xhttp = new XMLHttpRequest();
-				
-			// }
+			if(check == true)
+			{
+				var val = $(this).attr('data-target');
+				console.log(val);
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function()
+				{
+					if(this.readyState == 4 && this.status == 200)
+					{
+						console.log(this.responseText);
+					}
+				};
+				xhttp.open("POST", '/api/remove-category', true);
+				xhttp.setRequestHeader('X-CSRF-TOKEN',$('meta[name="csrf-token"]').attr('content'));
+	            xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    	        xhttp.send('id='+val);
+    	        $(this).remove();
+			}
 		});
 	</script>
 @endsection

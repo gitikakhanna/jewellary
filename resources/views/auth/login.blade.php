@@ -70,10 +70,4 @@
         </div>
     @endsection
 @endif
-{{-- @guest
-    
-      
-@else
-    
-@endguest --}}
 
