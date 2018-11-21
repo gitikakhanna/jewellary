@@ -35,9 +35,9 @@ class CategoriesController extends Controller
     protected function storeValidator($data)
     {
     	$data->validate([
-    		'category_name' => 'required|string' 
+    		'category_name' => 'required|unique:categories,name|string' 
     	]);
-    	return NULL;
+    	
     }
 
     protected function storeAction($data)

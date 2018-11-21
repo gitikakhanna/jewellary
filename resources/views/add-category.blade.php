@@ -19,7 +19,10 @@
 				<div class="col-12 bg-light p-4" style="margin-top:5%;">
 					<h3>Categories already added</h3>
 					@forelse($categories as $category)
-						<button type="button" data-target="{{$category->id}}" class="btn btn-outline-primary mr-3 mt-4 remove_cat">{{$category->name}}<i class="fas fa-times ml-2"></i></button>
+						<div class="btn btn-outline-primary mr-3 mt-4" data-target="{{$category->id}}">
+							<a href="#">{{$category->name}}</a>
+							<i class="fas fa-times ml-2 remove_cat"></i>
+						</div>
 						@empty{{'No categories found'}}
 					@endforelse
 				</div>
