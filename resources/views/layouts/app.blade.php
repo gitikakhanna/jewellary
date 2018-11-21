@@ -21,19 +21,14 @@
 <body>
     @guest
         <div id="app">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="{{ url('/') }}">Jewellery</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo" aria-controls="navbarTogglerDemo" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a href="{{ route('login') }}" class="nav-link">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('register') }}" class="nav-link">Register</a>
-                        </li>
+            <nav class="navbar bg-light">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a href="#" class="navbar-brand">Jewellery</a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{route('login')}}" class="float-left">Login</a></li>
+                        <li><a href="{{route('register')}}" class="float-left">Register</a></li>
                     </ul>
                 </div>
             </nav>

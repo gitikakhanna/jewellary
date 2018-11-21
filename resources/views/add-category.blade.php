@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 		<div class="container-fluid">
 			<div class="row">
@@ -16,5 +15,27 @@
 					</form>	
 				</div>
 			</div>
+			<div class="row" class="bg-info mt-4">	
+				<div class="col-12 bg-light p-4" style="margin-top:5%;">
+					<h3>Categories already added</h3>
+					@forelse($categories as $category)
+						<button type="button" data-target="{{$category->id}}" class="btn btn-outline-primary mr-3 mt-4 remove_cat">{{$category->name}}<i class="fas fa-times ml-2"></i></button>
+						@empty{{'No categories found'}}
+					@endforelse
+				</div>
+			</div>
 		</div>
+@endsection
+@section('js')
+	<script type="text/javascript">
+		$(document).on('click', '.remove_cat', function(){
+			var check = confirm("Are you sure you want to remove this category?");
+			// if(check == true)
+			// {
+			// 	var val = $(this).attr('data-target');
+			// 	var xhttp = new XMLHttpRequest();
+				
+			// }
+		});
+	</script>
 @endsection
