@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/skeleton.css')}}?v={{filemtime('css/skeleton.css')}}">
 </head>
 <body>
+    @yield('modal')
     @guest
         <div id="app">
             <nav class="navbar bg-light">

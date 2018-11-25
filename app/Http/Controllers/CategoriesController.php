@@ -48,4 +48,29 @@ class CategoriesController extends Controller
     		'updated_at'=>now(),
     	]);
     }
+
+    protected function edit(Request $request)
+    {   
+        //dd($request->editcategoryid);
+        $invalid = $this->editValidator($request);
+        if(!empty($invalid))
+        {
+            $request->session()->flash('flashFailure', $invalid);
+            return redirect()->back()->withInput($request->input());
+        }
+        $this->editAction($request);
+        return redirect()->back();
+    }
+
+    protected function editValidator($data)
+    {
+        $data->validate([
+            'editcategoryname' => 'required|unique:categories,name|string' 
+        ]);   
+    }
+
+    protected function editAction($data)
+    {
+        Categories::where('id', $data->editcategoryid)->update(['name' => $data->editcategoryname]);
+    }
 }
