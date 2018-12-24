@@ -26,6 +26,8 @@ Route::post('/add-category/edit', 'CategoriesController@edit');
 
 // routes for sub category
 Route::get('/category/add-subcategory', 'SubcategoriesController@index');
+Route::post('/category/add-subcategory/add', 'SubcategoriesController@store');
+Route::post('/category/add-subcategory/edit', 'SubcategoriesController@edit');
 
 //routes for add products
 Route::get('/add-products', 'ProductsController@index');

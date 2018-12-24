@@ -51,7 +51,6 @@ class CategoriesController extends Controller
 
     protected function edit(Request $request)
     {   
-        //dd($request->editcategoryid);
         $invalid = $this->editValidator($request);
         if(!empty($invalid))
         {

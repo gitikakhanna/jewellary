@@ -19,15 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/category/add-subcategory/add', function(Request $request){
-	DB::table('subcategories')->insert([
-			'category_id' => $request->category,
-			'subcategory_name' => $request->subcategory,
-			'created_at' => now(),
-			'updated_at' => now()
-	]);
-	return 'hey';
-});
 
 Route::post('/add-products/subcategory', function(Request $request){
 	$subcat_name = DB::table('subcategories')->where('category_id', $request->subcategory)->get();
@@ -46,5 +37,13 @@ Route::post('/add-products/subcategory', function(Request $request){
 
 Route::post('/remove-category', function(Request $request){
 	DB::table('categories')->where('id', $request->id)->delete();
+	DB::table('subcategories')->where('category_id', $request->id)->delete();
+	DB::table('products')->where('category', $request->id)->delete();
+	return 'category removed';
+});
+
+Route::post('/remove-subcategory', function(Request $request){
+	DB::table('subcategories')->where('id', $request->id)->delete();
+	DB::table('products')->where('subcategory', $request->id)->delete();
 	return 'category removed';
 });
