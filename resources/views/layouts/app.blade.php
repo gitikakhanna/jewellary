@@ -24,13 +24,15 @@
         <div id="app">
             <nav class="navbar bg-light">
                 <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a href="#" class="navbar-brand">Jewellery</a>
+                    <div class="row w-100 d-flex align-items-center justify-content-center">
+                        <div class="col-3">
+                            <a href="#" class="">Jewellery</a>
+                        </div>
+                        <div class="col-9 text-right">
+                            <a href="{{route('login')}}" class="mr-3">Login</a>
+                            <a href="{{route('register')}}" class="">Register</a>
+                        </div>
                     </div>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{route('login')}}" class="float-left">Login</a></li>
-                        <li><a href="{{route('register')}}" class="float-left">Register</a></li>
-                    </ul>
                 </div>
             </nav>
             @yield('content')
@@ -43,7 +45,7 @@
             <nav id = "sidebar" class="sidebar-wrapper">
                 <div class="sidebar-content">
                     <div class="sidebar-brand">
-                        <a href="#">Jewellary</a>
+                        <a href="#">Jewellery</a>
                         <div id="close-sidebar">
                             <i class="fas fa-times"></i>
                         </div>

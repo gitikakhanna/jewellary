@@ -25,7 +25,7 @@
 						<td>{{$product->product_name}}</td>
 						<td>{{$product->price}}</td>
 						<td><span class="{{($product->availability == 'on')?'text-success':'text-danger'}}">{{($product->availability == 'on')?'In stock':'Sold Out'}}</td>
-						<td><i class="fas fa-edit"></i><i class="fas fa-trash ml-4"><a href="/show-products/remove"></a></i></td>
+						<td><i class="fas fa-edit"><a href="/show-products/edit/{{$product->product_code}}"></a></i><i class="fas fa-trash ml-4"><a href="/show-products/remove"></a></i></td>
 					</tr>
 					@empty{{''}}
 				@endforelse
