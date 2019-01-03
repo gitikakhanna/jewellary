@@ -24,8 +24,24 @@ class EditProductsController extends Controller
     	return view('show-products', compact('products'));
     }
 
-    public function remove()
+    public function remove($productcode)
     {
-    	dd('hey');
+    	dd($productcode);
+    }
+
+    public function edit($productcode)
+    {
+        $product = DB::table('products')->where('product_code', $productcode)->first();
+        $subcategories = DB::table('subcategories')->where('category_id', $product->category)->get();
+        $metalinfo = DB::table('metalinfo')->where('product_code', $productcode)->first();
+        $otherinfo = DB::table('otherinfo')->where('product_code', $productcode)->first();
+        $pricedesc = DB::table('pricedesc')->where('product_code', $productcode)->first();
+        $productdimension = DB::table('productdimension')->where('product_code', $productcode)->first();
+
+        return view('edit-product', compact('product', 'subcategories', 'metalinfo', 'otherinfo', 'pricedesc', 'productdimension'));
+    }
+    public function update(Request $request, $productcode)
+    {
+        dd($productcode);
     }
 }

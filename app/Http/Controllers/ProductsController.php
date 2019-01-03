@@ -49,7 +49,7 @@ class ProductsController extends Controller
     	$extension = $cover->getClientOriginalExtension();
     	Storage::disk('public')->put($cover->getFilename().'.'.$extension, File::get($cover));
 
-    	$rand_product_code = $data->category." ".mt_rand(0, 10000);
+    	$rand_product_code = $data->category."".mt_rand(0, 10000);
     	DB::table('products')->insert([
     		'category' => $data->category,
     		'subcategory' => $data->subcategory,

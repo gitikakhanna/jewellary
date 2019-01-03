@@ -35,4 +35,6 @@ Route::post('/save-product', 'ProductsController@store');
 
 //routes for show products
 Route::get('/show-products', 'EditProductsController@index');
-Route::get('/show-products/remove', 'EditProductsController@remove');
+Route::get('/show-products/remove/{productcode}', 'EditProductsController@remove');
+Route::get('/show-products/edit/{productcode}', 'EditProductsController@edit');
+Route::get('/update-product/{productcode}', 'EditProductsController@update');
