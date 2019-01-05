@@ -86,7 +86,7 @@
 						  			</div>
 						  		</div>
 						  		<div class="row">
-						  			<input type="checkbox" name="" class="form-control" style="width: 5%;" {{$product->availability == 'on'?'checked':''}}><label>Availability</label>	
+						  			<input type="checkbox" name="availability" class="form-control" style="width: 5%;" {{$product->availability == 'on'?'checked':''}}><label>Availability</label>	
 						  		</div>
 						</div>
 						<div class="tab-pane fade" id="v-pills-dimension" role="tabpanel" aria-labelledby="v-pills-dimension-tab">

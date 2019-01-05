@@ -60,6 +60,14 @@ class EditProductsController extends Controller
     }
     protected function updateAction($data, $productcode)
     {
+        if($data->availability == '')
+        {
+            $availability = 'off';
+        }
+        else{
+            $availability = 'on';
+        }
+
         DB::table('products')
             ->where('product_code', $productcode)
             ->update([
@@ -70,7 +78,45 @@ class EditProductsController extends Controller
                 'description' => $data->description,
                 'item_package_qty' => $data->package_qty,
                 'gender' => $data->gender,
-                'created_at' => now(),
+                'availability' => $availability,
+                'updated_at' => now(),
+            ]);
+
+        DB::table('productdimension')
+            ->where('product_code', $productcode)
+            ->update([
+                'width' => $data->width,
+                'height' => $data->height,
+                'weight' => $data->weight,
+                'updated_at' => now(),
+            ]);
+
+        DB::table('metalinfo')
+            ->where('product_code', $productcode)
+            ->update([
+                'metal_type' => $data->metal_type,
+                'metal_weight' => $data->metal_weight,
+                'color' => $data->metal_color,
+                'clarity' => $data->metal_clarity,
+                'updated_at' => now(),
+            ]);
+
+        DB::table('pricedesc')
+            ->where('product_code', $productcode)
+            ->update([
+                'metal' => $data->metal_charges,
+                'making' => $data->making_charges,
+                'tax' => $data->tax_charges,
+                'updated_at' => now(),
+            ]);
+
+        DB::table('otherinfo')
+            ->where('product_code', $productcode)
+            ->update([
+                'wearing_style' => $data->wearing_style,
+                'occasion' => $data->occassion,
+                'theme' => $data->theme,    
+                'featured' => $data->featured,
                 'updated_at' => now(),
             ]);
     }
