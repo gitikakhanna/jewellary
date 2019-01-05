@@ -48,7 +48,13 @@ class ProductsController extends Controller
         //dd($data->img_url);
     	$extension = $cover->getClientOriginalExtension();
     	Storage::disk('public')->put($cover->getFilename().'.'.$extension, File::get($cover));
-
+        if($data->availability == '')
+        {
+            $availability = 'off';
+        }
+        else{
+            $availability = 'on';
+        }
     	$rand_product_code = $data->category."".mt_rand(0, 10000);
     	DB::table('products')->insert([
     		'category' => $data->category,
@@ -61,7 +67,7 @@ class ProductsController extends Controller
     		'item_package_qty' => $data->package_qty,
     		'gender' => $data->gender,
     		'image' => $cover->getFilename().'.'.$extension,
-    		'availability' => $data->availability,
+    		'availability' => $availability,
     		'created_at'=>now(),
     		'updated_at' => now(),
     	]);

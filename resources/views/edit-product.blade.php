@@ -78,15 +78,15 @@
 
 							  			<input type="text" name="alt_txt" class="form-control mt-2" placeholder="Alt Text" value="">		
 						  			</div>
+						  			@php
+						  				$img = 'uploads/'.$product->image.'';
+						  			@endphp
 						  			<div class="col-6">
-						  				<img src="uploads/{{$product->image}}" class="img-fluid" id="prod_img">	
+						  				<img src="{{asset($img)}}" class="img-fluid" id="prod_img">	
 						  			</div>
 						  		</div>
-						  		<div class="col-auto my-1">
-						  			<div class="custom-control cutsom-checkbox mr-sm-2">
-						  				<input type="checkbox" name="availability" class="custom-control-input" id="availability" value="false">
-						  				<label class="custom-control-label" for="availability">Availability</label>
-						  			</div>
+						  		<div class="row">
+						  			<input type="checkbox" name="" class="form-control" style="width: 5%;" {{$product->availability == 'on'?'checked':''}}><label>Availability</label>	
 						  		</div>
 						</div>
 						<div class="tab-pane fade" id="v-pills-dimension" role="tabpanel" aria-labelledby="v-pills-dimension-tab">

@@ -89,11 +89,8 @@
 					  				<img src="/img/image-placeholder.png" class="img-fluid" id="prod_img">	
 					  			</div>
 					  		</div>
-					  		<div class="col-auto my-1">
-					  			<div class="custom-control cutsom-checkbox mr-sm-2">
-					  				<input type="checkbox" name="availability" class="custom-control-input" id="availability" value="false">
-					  				<label class="custom-control-label" for="availability">Availability</label>
-					  			</div>
+					  		<div class="row">
+					  			<input type="checkbox" name="availability" class="form-control" style="width: 5%;"><label>Availability</label>
 					  		</div>
 					  	</div>
 					  	<div class="tab-pane fade" id="v-pills-dimension" role="tabpanel" aria-labelledby="v-pills-dimension-tab">
@@ -192,17 +189,6 @@
 			}// end else
 
 		});	
-
-		$(document).on('change', '#availability', function(){
-			if($('#availability').is(":checked")){
-				$('#availability').attr('value', 'on');
-			}
-			else
-			{	
-				$('#availability').attr('value', 'off');
-			}
-		});
-
 	</script>
 @endsection
 @section('extra-js')

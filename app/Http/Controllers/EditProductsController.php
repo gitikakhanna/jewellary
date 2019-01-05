@@ -42,6 +42,37 @@ class EditProductsController extends Controller
     }
     public function update(Request $request, $productcode)
     {
-        dd($productcode);
+        $invalid = $this->updateValidator($request);
+        if(!empty($invalid))
+        {
+            $request->session()->flash('flashFailure', $invalid);
+            return redirect()->back()->withInput($request->input());
+        }
+        $this->updateAction($request, $productcode);
+        return redirect()->back();
     }
+    protected function updateValidator($data)
+    {
+        $data->validate([
+            'product_name' => 'required|string' 
+        ]);
+        return NULL;
+    }
+    protected function updateAction($data, $productcode)
+    {
+        DB::table('products')
+            ->where('product_code', $productcode)
+            ->update([
+                'subcategory' => $data->subcategory,
+                'product_name' => $data->product_name,
+                'price' => $data->price,
+                'discount' => $data->discount,
+                'description' => $data->description,
+                'item_package_qty' => $data->package_qty,
+                'gender' => $data->gender,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+    }
+
 }

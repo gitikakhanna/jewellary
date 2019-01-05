@@ -37,4 +37,4 @@ Route::post('/save-product', 'ProductsController@store');
 Route::get('/show-products', 'EditProductsController@index');
 Route::get('/show-products/remove/{productcode}', 'EditProductsController@remove');
 Route::get('/show-products/edit/{productcode}', 'EditProductsController@edit');
-Route::get('/update-product/{productcode}', 'EditProductsController@update');
+Route::post('/update-product/{productcode}', 'EditProductsController@update');
