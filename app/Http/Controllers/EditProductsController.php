@@ -60,6 +60,11 @@ class EditProductsController extends Controller
     }
     protected function updateAction($data, $productcode)
     {
+        $cover = $data->file('image');
+
+        $extension = $cover->getClientOriginalExtension();
+        Storage::disk('public')->put($cover->getFilename().'.'.$extension, File::get($cover));
+
         if($data->availability == '')
         {
             $availability = 'off';
@@ -78,6 +83,7 @@ class EditProductsController extends Controller
                 'description' => $data->description,
                 'item_package_qty' => $data->package_qty,
                 'gender' => $data->gender,
+                'image' => $cover->getFilename().'.'.$extension,
                 'availability' => $availability,
                 'updated_at' => now(),
             ]);

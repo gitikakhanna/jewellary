@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 	<div class="container-fluid">
-		<form method="POST" action="/update-product/{{$product->product_code}}">
+		<form method="POST" action="/update-product/{{$product->product_code}}" enctype="multipart/form-data">
 			<div class="row d-flex align-items-center mb-4">
 				<span class="bg-light text-secondary p-2">Product Code</span><small class="font-weight-bold ml-2">{{$product->product_code}}</small>
 			</div>
@@ -73,8 +73,8 @@
 						  		</div>
 						  		<div class="row">
 						  			<div class="col-6">
-							  			<label class="mt-3">Images</label>
-							  			<input type="file" name="img_url" class="show-preview" accept="image/*" data-target="#prod_img" value="">
+							  			<label class="mt-3">Change Product Image</label>
+							  			<input type="file" name="image" class="show-preview" accept="image/*" value="">
 
 							  			<input type="text" name="alt_txt" class="form-control mt-2" placeholder="Alt Text" value="">		
 						  			</div>
@@ -163,10 +163,6 @@
 	   	$(document).on('change','.show-preview',function(){
 			var image = $(this).val();
 			console.log(image);
-			if(image == ''){
-				image = '/img/image-placeholder.png';
-			}
-			$($(this).attr('data-target')).attr('src',image);
 		})
 	</script>
 @endsection
